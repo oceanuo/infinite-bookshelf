@@ -98,20 +98,20 @@ try:
         large_model_generation_statistics, book_structure = generate_book_structure(
             prompt=topic_text,
             additional_instructions=additional_instructions,
-            model="llama3-70b-8192",
+            model="llama-3.3-70b-versatile",
             groq_provider=st.session_state.groq,
         )
 
         # Step 2: Generate book title using title_writer agent
         st.session_state.book_title = generate_book_title(
             prompt=topic_text,
-            model="llama3-70b-8192",
+            model="llama-3.3-70b-versatile",
             groq_provider=st.session_state.groq,
         )
 
         st.write(f"## {st.session_state.book_title}")
 
-        total_generation_statistics = GenerationStatistics(model_name="llama3-8b-8192")
+        total_generation_statistics = GenerationStatistics(model_name="llama-3.3-70b-versatile")
 
         # Step 3: Generate book section content using section_writer agent
         try:
@@ -132,7 +132,7 @@ try:
                         content_stream = generate_section(
                             prompt=(title + ": " + content),
                             additional_instructions=additional_instructions,
-                            model="llama3-8b-8192",
+                            model="llama-3.3-70b-versatile",
                             groq_provider=st.session_state.groq,
                         )
                         for chunk in content_stream:
