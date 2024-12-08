@@ -31,7 +31,7 @@ def render_advanced_groq_form(on_submit, button_disabled=False, button_text="Gen
         section_agent_model = st.selectbox(
             "Section Agent Model",
             MODEL_LIST,
-            index=1,
+            index=0,
             help="Generates content for each section of the book",
         )
         st.markdown("\n")
